@@ -11,6 +11,9 @@
 html {
   font-size: 62.5%;
 }
+.colHeader {
+	text-align: center;
+}
 
 /* line 7, ../../../../../Program Files (x86)/ruby-1.9.2/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.2/scss/foundation/common/_globals.scss */
 body {
@@ -149,7 +152,9 @@ aside p {
 
 /* line 15, ../../../../../Program Files (x86)/ruby-1.9.2/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.2/scss/foundation/common/_typography.scss */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  
+  
+   font-family: josefin-slab, serif;
   font-weight: bold;
   font-style: normal;
   color: #222222;
@@ -886,7 +891,7 @@ form.custom .custom.disabled {
 /* The Grid ---------------------- */
 /* line 3, ../../../../../Program Files (x86)/ruby-1.9.2/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.2/scss/foundation/components/_grid.scss */
 .row {
-  width: 1400px;
+  width: 1000px;
   max-width: 100%;
   min-width: 768px;
   margin: 0 auto;
