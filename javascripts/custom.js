@@ -1,4 +1,11 @@
 	var M = {};
+	M.init = function(){
+		M.etsy.init();
+		$('#etsy .more').click(function(){
+			M.etsy.more();
+		});
+	}
+	
 	M.etsy = {};
 	M.etsy.items = {};
 	M.etsy.page = 0;

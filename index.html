@@ -91,26 +91,9 @@
   <script src="javascripts/custom.js"></script>
   <script src="mustache.js"></script>
   <script type="text/javascript">
-  /*$(document).ready(function(){
-  $('#col1, #col2, #col3').click(function (){
-	if( !$(this).hasClass('act') )
-	{
-		$('#col1.act, #col2.act, #col3.act').removeClass('act').removeClass('eight').addClass('two');
-		$(this).addClass('eight').addClass('act');
-	}
-	});
-  });*/
+  $(document).ready(function(){
+	M.init();
+  });
   </script>
-  <script type="application/javascript">
-  var d = {};
-function getData(data) {
-      if (data.ok) {
-            // do something with the data here
-			d.d = data;
-        } else {
-            alert(data.error);
-      }
-}
-</script>
 </body>
 </html>
