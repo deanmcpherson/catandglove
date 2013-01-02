@@ -4,6 +4,11 @@
 		$('#etsy .more').click(function(){
 			M.etsy.more();
 		});
+		
+		M.write.get();
+		$('#write .more').click(function(){
+			M.write.get();
+		});
 	}
 	
 	M.etsy = {};
@@ -23,7 +28,6 @@
 			}).done(function(data){
 				if (data.ok){
 				M.etsy.page++;
-				console.log(data);
 				var count = 0;
 					for (x in data.results)
 					{
@@ -87,3 +91,74 @@
 
 	M.etsy.init = M.etsy.get;
 	M.etsy.more = M.etsy.get;
+	
+	M.wp = {};
+M.wp.category = '';
+M.wp.items = {};
+M.wp.page = 1;
+M.wp.limit = 25;
+M.wp.isMore = true;
+
+M.wp.get = function(){
+	if ( M.wp.isMore ){
+		var wp = this;
+		url = '/press?json=get_category_post&category='+this.category+'&count='+this.limit+'&page='+this.page;
+		$.get(url).
+		done( function( data ){
+			if ( data.status == 'ok' ){
+				this.page++;
+				var count = 0;
+				for ( x in data.posts ){
+					count++;
+					var result = data.posts[x];
+					wp.items[result['slug']] = result;
+				}
+				if ( count < wp.limit ) { wp.isMore = false;}
+			}
+			wp.render();
+		})
+	}
+}
+
+M.write = M.wp;
+M.write.category = 'write';
+M.write.showMoreButton = function(){
+	$('#write .more').show();
+};
+M.write.hideMoreButton = function(){
+	$('#write .more').hide();
+};
+M.write.render = function(){
+	var itemTemp = '<div class="row"><div class="twelve columns"><div class="panel writeItem" eID= "{{slug}}" \><h3>{{{title}}}</h3>{{{content}}}</div></div></div>';
+	var writeHTML = [];
+	
+	for (x in this.items){
+		var result = this.items[x];
+		if (result.rendered == undefined){
+			//result.image = result.Images[0]['url_570xN'];
+			writeHTML.push(Mustache.render(itemTemp, result));
+			this.items[x]['rendered'] = true;
+		}
+	}
+	
+	var loadHTML = function(){
+		if (writeHTML.length > 0)
+		{
+			var $item = $(writeHTML.pop());
+			$('#write .items').append($item);
+			$item.hide().fadeIn(1000);
+			setTimeout(loadHTML, 100);
+		}
+		else
+		{
+			if ( M.write.isMore ){
+				M.write.showMoreButton();
+			}
+			else
+			{
+				M.write.hideMoreButton();
+			}
+		}
+	}
+	loadHTML();
+}
