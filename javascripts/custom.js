@@ -106,7 +106,7 @@ M.wp.get = function(){
 		$.get(url).
 		done( function( data ){
 			if ( data.status == 'ok' ){
-				this.page++;
+				wp.page++;
 				var count = 0;
 				for ( x in data.posts ){
 					count++;
