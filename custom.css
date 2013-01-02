@@ -14,7 +14,7 @@ overflow: hidden;
 cursor: pointer;
 }
 
-.panel.writeItem:hover {
+.panel.writeItem:hover,.panel.writeItem:hover h3 {
 color: white;
 background: #555 !important;
 }
