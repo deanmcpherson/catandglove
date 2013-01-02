@@ -32,7 +32,7 @@
 						var result = data.results[x];
 						M.etsy.items[result.listing_id] = result;
 					}
-					if ( count < limit ) { M.etsy.isMore = false; M.etsy.hideMoreButton(); }
+					if ( count < limit ) { M.etsy.isMore = false;}
 					M.etsy.render();
 				}
 				else
@@ -74,10 +74,15 @@
 			}
 			else
 			{
-				M.etsy.showMoreButton();
+				if ( M.etsy.isMore ){
+					M.etsy.showMoreButton();
+				}
+				else
+				{
+					M.etsy.hideMoreButton();
+				}
 			}
 		}
-		
 		loadHTML();
 	}
 
