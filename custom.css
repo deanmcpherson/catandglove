@@ -32,6 +32,6 @@ cursor: pointer;
 }
 .more:active {
 background-color: #85A0BD;
-box-shadow: 3px 4px 0px 0px #C4D4FD85A0BD;
+box-shadow: 3px 4px 0px 0px #C4D4FD;
 
 }

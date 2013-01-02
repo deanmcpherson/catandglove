@@ -65,10 +65,13 @@
 				$item.hide().fadeIn(1000);
 				setTimeout(loadHTML, 100);
 			}
+			else
+			{
+				M.etsy.showMoreButton();
+			}
 		}
 		
 		loadHTML();
-		M.etsy.showMoreButton();
 	}
 
 	M.etsy.init = M.etsy.get;
