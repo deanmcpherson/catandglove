@@ -55,5 +55,18 @@ cursor: pointer;
 .more:active {
 background-color: #85A0BD;
 box-shadow: 3px 4px 0px 0px #C4D4FD;
-
 }
+
+.mobNav h3 {
+background: white;
+padding: .4em;
+text-align: center;
+box-shadow: 10px 10px 1000px;
+position: relative;
+z-index: 0;
+}
+
+.mobNav h3.act {
+z-index: 1;
+border-bottom: 1px solid #DDD;
+}`
