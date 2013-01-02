@@ -68,7 +68,7 @@
 		}
 		
 		loadHTML();
-		
+		M.etsy.showMoreButton();
 	}
 
 	M.etsy.init = M.etsy.get;

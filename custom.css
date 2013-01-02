@@ -11,9 +11,27 @@ text-transform: uppercase;
 color: rgba(255, 255, 255, .6);
 font-size: 30px;
 overflow: hidden;
+cursor: pointer;
 }
 
 .panel.etsyItem:hover {
 color: white;
 background: #555 !important;
+}
+
+.more {
+display: none;
+background-color: #C4D4FD;
+text-align: center;
+padding: .5em;
+box-shadow: 3px 4px 0px 0px #85A0BD;
+cursor: pointer;
+-webkit-user-select: none; /* Chrome/Safari */        
+-moz-user-select: none; /* Firefox */
+-ms-user-select: none; 
+}
+.more:active {
+background-color: #85A0BD;
+box-shadow: 3px 4px 0px 0px #C4D4FD85A0BD;
+
 }
