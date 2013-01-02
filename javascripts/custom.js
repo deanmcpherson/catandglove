@@ -100,7 +100,7 @@ M.wp.limit = 25;
 M.wp.isMore = true;
 
 M.wp.get = function(){
-	if ( M.wp.isMore ){
+	if ( this.isMore ){
 		var wp = this;
 		url = '/press?json=get_category_post&category='+this.category+'&count='+this.limit+'&page='+this.page;
 		$.get(url).
