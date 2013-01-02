@@ -162,3 +162,67 @@ M.write.render = function(){
 	}
 	loadHTML();
 }
+
+M.nav = {};
+M.nav.home = function () {
+}
+
+M.nav.makeActive = function ($id){
+	if ( !$id.hasClass('twelve') ){
+		$('.content>.twelve').removeClass('twelve').addClass('four');
+		$('.hidden').removeClass('hidden');
+		$('#etsy, #write, #art').addClass('hidden');
+		$id.removeClass('hidden').removeClass('four').addClass('twelve');
+	}
+}
+
+M.nav.removeActive = function($id){
+$('#etsy, #write, #art').removeClass('hidden');
+$('.content>.twelve').removeClass('twelve').addClass('four');
+}
+
+M.nav.pageByID = function(type, id){
+
+	if ( M[type]['items'][id] != undefined )
+	{
+		var data = M[type]['items'][id];
+		M[type]['renderItem']( data );
+		console.log(data.title);
+	}
+	else
+	{
+		M[type]['getSingle'](id);
+	}
+}
+
+var router = new Router();
+
+router.route('', function(){
+	M.nav.removeActive();
+});
+
+router.route('/etsy', function(){
+	M.nav.makeActive($('#etsy'));
+});
+
+router.route('/etsy/:id', function(id){
+	M.nav.pageByID('etsy', id);
+});
+
+router.route('/write', function(){
+	M.nav.makeActive($('#write'));
+});
+
+router.route('/write/:id', function(id){
+	M.nav.pageByID('write', id);
+});
+
+router.route('/art', function(){
+	M.nav.makeActive($('#art'));
+});
+
+router.route('/art/:id', function(id){
+	M.nav.pageByID('art', id);
+});
+
+
