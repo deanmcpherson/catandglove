@@ -26,17 +26,23 @@
 			<hr />
 		</div>
 	</div>
-
+	
 	<div class="row">
 		<div id="etsy" class="four columns act">
 			<h3 class="colHeader">Etsy</h3>
+			<span id="items"></span>
+			<h4 class="more">more</h4>
 		</div>
 
 		<div id="art" class="four columns">
 			<h3 class="colHeader">Art</h3>
+			<span id="items"></span>
+			<h4 class="more">more</h4>
 		</div>
 		<div id="write" class="four columns">
 			<h3 class="colHeader">Writings</h3>
+			<span id="items"></span>
+			<h4 class="more">more</h4>
 		</div>
 	</div>
 
@@ -82,6 +88,7 @@
 
   <!-- Application Javascript, safe to override -->
   <script src="javascripts/foundation/app.js"></script>
+  <script src="javascripts/custom.js"></script>
   <script src="mustache.js"></script>
   <script type="text/javascript">
   /*$(document).ready(function(){
@@ -105,7 +112,5 @@ function getData(data) {
       }
 }
 </script>
-
-<script src="http://openapi.etsy.com/v2/shops/catandglove/listings/active.js?callback=getData&api_key=3lrt6kdjs0ppzxvxj1ypo0m4"></script>
 </body>
 </html>
