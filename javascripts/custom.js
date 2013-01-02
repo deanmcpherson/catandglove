@@ -9,6 +9,13 @@
 		$('#write .more').click(function(){
 			M.write.get();
 		});
+		
+		$('[show]:not(.prep)').addClass('prep').tappable(function(){
+		var show = $(this).attr('show');
+		router.navigate('/'+show);
+		$('[show].act').removeClass('act');
+		$('[show='+show+']').addClass('act');
+		});
 	}
 	
 	M.etsy = {};

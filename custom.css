@@ -61,7 +61,10 @@ box-shadow: 3px 4px 0px 0px #C4D4FD;
 background: white;
 padding: .4em;
 text-align: center;
-box-shadow: 10px 10px 1000px;
+-webkit-box-shadow: 10px 10px 1000px #000;
+-moz-box-shadow: 10px 10px 1000px #000;
+-ms-box-shadow: 10px 10px 1000px #000;
+box-shadow: 10px 10px 1000px #000;
 position: relative;
 z-index: 0;
 }
