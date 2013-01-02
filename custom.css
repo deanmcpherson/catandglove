@@ -34,7 +34,7 @@ overflow: hidden;
 cursor: pointer;
 }
 
-.panel.etsyItem:hover {
+.panel.etsyItem:hover , .panel.etsyItem:hover h3{
 color: white;
 background: #555 !important;
 }
