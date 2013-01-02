@@ -14,7 +14,6 @@
 	M.etsy.get = function(){
 		if ( M.etsy.isMore ){
 			limit = M.etsy.limit;
-			M.etsy.default = $('#etsy').html();
 			var offset = M.etsy.page*limit;
 			var url = 'http://openapi.etsy.com/v2/shops/catandglove/listings/active.js?callback=getData&api_key=3lrt6kdjs0ppzxvxj1ypo0m4&includes=Images&limit='+limit+'&order=date_desc&offset='+offset;
 			
@@ -88,8 +87,3 @@
 
 	M.etsy.init = M.etsy.get;
 	M.etsy.more = M.etsy.get;
-	M.etsy.clear = function(){
-		if (M.etsy.default != undefined){
-			$('#etsy').html(M.etsy.default);
-		}
-	}
