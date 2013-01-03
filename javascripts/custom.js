@@ -147,11 +147,11 @@ M.etsy.renderItem = function (data) {
 	var a = 0;
 	for (x in data.Images ){
 		if (a == 0){
-		data.image_list+='<li style=\'display:block\'><img src=\'' + data['Images'][x]['url_570xN'] + '\'></li>';	
-		a++;
+			data.image_list+='<li style=\'display:block\'><a href="' + data['Images'][x]['url_fullxfull'] + '"><img src=\'' + data['Images'][x]['url_570xN'] + '\' alt="'+ data.title +'"></a></li>';	
+			a++;
 		} else
 		{
-			data.image_list+='<li style=\'display:none\'><img src=\'' + data['Images'][x]['url_570xN'] + '\'></li>';
+			data.image_list+='<li style=\'display:none\'><a href="' + data['Images'][x]['url_fullxfull'] + '"><img src=\'' + data['Images'][x]['url_570xN'] + '\' alt="'+ data.title +'"></a></li>';
 		}
 	}
 	
