@@ -109,7 +109,7 @@ M.wp.isMore = true;
 M.wp.get = function(){
 	if ( this.isMore ){
 		var wp = this;
-		url = '/press?json=get_category_posts&category='+this.category+'&count='+this.limit+'&page='+this.page;
+		url = '/press?json=get_category_posts&category_slug='+this.category+'&count='+this.limit+'&page='+this.page;
 		$.get(url).
 		done( function( data ){
 			if ( data.status == 'ok' ){
