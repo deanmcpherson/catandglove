@@ -113,8 +113,6 @@
 			else
 			{
 				$('.etsyItem:not(prepped)').addClass('prepped').tappable(function(){
-					$ref = $(this);
-					$ref.addClass('activeItem');
 					var eid = $(this).attr('eid');
 					router.navigate('/etsy/'+eid);
 				});
@@ -262,6 +260,7 @@ M.nav.pageByID = function(type, id){
 
 	if ( M[type]['items'][id] != undefined )
 	{
+		$('[eid='+id+']').addClass('activeItem');
 		var data = M[type]['items'][id];
 		M[type]['renderItem']( data );
 		console.log(data.title);
