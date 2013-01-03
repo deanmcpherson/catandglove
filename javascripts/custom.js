@@ -112,6 +112,12 @@
 			}
 			else
 			{
+				$('.etsyItem:not(prepped)').addClass('prepped').tappable(function(){
+					$ref = $(this);
+					$ref.addClass('activeItem');
+					var eid = $(this).attr('eid');
+					router.navigate('/etsy/'+eid);
+				});
 				if ( M.etsy.isMore ){
 					M.etsy.showMoreButton();
 				}
@@ -123,7 +129,31 @@
 		}
 		loadHTML();
 	}
-
+	
+M.etsy.renderItem = function (data) {
+	M.nav.makeActive($('#etsy'));
+	M.restoreItems();
+	var tmpl = '<div class="itemDetails row"><div class="column six"><p>{{{description}}}</p><a href="http://etsy.com/listing/{{listing_id}}"><button class="button">View on etsy</button></a><ul><li>Price - {{price}} {{currency_code}}</li><li>Style - {{style_string}}</li></ul></div><div class="column six"><div class="gal"{{{image_lis}}}</div></div></div>';
+	data.style_string = '';
+	var eid = data.listing_id;
+	for (x in data.style)
+	{
+		data.style_string += data.style[x] +', ';
+	}
+	if (data.style_string.length > 0)
+	{
+		data.style_string= data.style_string.substr(0, data.style_string.length-2);
+	}
+	data.description = data.description.replace(/\n/g,"<br>");
+	data.image_list = '';
+	var res = Mustache.render(tmpl, data);
+	$('[eid='+eid+']').after(res);
+}
+	
+M.restoreItems = function (){
+	 $('.itemDetails').remove();
+	 $('.activeItem').removeClass('.activeItem');
+}	
 	M.etsy.init = M.etsy.get;
 	M.etsy.more = M.etsy.get;
 	
