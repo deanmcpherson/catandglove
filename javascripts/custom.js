@@ -1,4 +1,15 @@
 	var M = {};
+	M.loader = $('#ajax_wrap, #ajax_loader');
+	M.loadCheck = function(){
+		if ( loadCount > 0 ){
+			M.loader.show();
+		}
+		else
+		{
+			M.loader.hide();
+		}
+	}
+	M.loadCount = 0;
 	M.init = function(){
 		M.etsy.init();
 		$('#etsy .more').tappable(function(){
@@ -37,11 +48,14 @@
 			limit = M.etsy.limit;
 			var offset = M.etsy.page*limit;
 			var url = 'http://openapi.etsy.com/v2/shops/catandglove/listings/active.js?callback=getData&api_key=3lrt6kdjs0ppzxvxj1ypo0m4&includes=Images&limit='+limit+'&order=date_desc&offset='+offset;
-			
+			M.loadCount++;
+			M.loadCheck();
 			$.ajax({
 			url:url,
 			dataType: 'jsonp'
 			}).done(function(data){
+				M.loadCount--;
+				M.loadCheck();
 				if (data.ok){
 				M.etsy.page++;
 				var count = 0;
@@ -58,6 +72,10 @@
 				{
 
 				}
+			})
+			.fail(function(){
+			M.loadCount--;
+			M.loadCheck();
 			});
 		}
 	}
@@ -119,8 +137,12 @@ M.wp.get = function(){
 	if ( this.isMore ){
 		var wp = this;
 		url = '/press?json=get_category_posts&category_slug='+this.category+'&count='+this.limit+'&page='+this.page;
+		M.loadCount++;
+		M.loadCheck();
 		$.get(url).
 		done( function( data ){
+			M.loadCount--;
+			M.loadCheck();
 			if ( data.status == 'ok' ){
 				wp.page++;
 				var count = 0;
@@ -133,6 +155,10 @@ M.wp.get = function(){
 			}
 			wp.render();
 		})
+		.fail(function(){
+		M.loadCount--;
+		M.loadCheck();
+		});
 	}
 }
 
@@ -180,6 +206,7 @@ M.write.render = function(){
 }
 
 M.nav = {};
+
 M.nav.home = function () {
 	router.navigate('/');
 }
