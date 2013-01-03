@@ -24,8 +24,8 @@ background-color:white;
 	-webkit-transition: width .5s, height .5s;
 	}
 	body{
-		background:#dedede;
-	}
+		background:#ddd;
+		}
 }
 
 .panel.etsyItem {
