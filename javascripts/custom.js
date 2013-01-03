@@ -145,6 +145,7 @@ M.etsy.renderItem = function (data) {
 	data.image_list = '';
 	var res = Mustache.render(tmpl, data);
 	$('[eid='+eid+']').after(res);
+	scrollTo(0, $('[eid='+eid+']').offset().top);
 }
 	
 M.restoreItems = function (){
