@@ -42,7 +42,7 @@
 	M.etsy = {};
 	M.etsy.items = {};
 	M.etsy.page = 0;
-	M.etsy.limit = 25;
+	M.etsy.limit = 15;
 	M.etsy.isMore = true;
 	M.etsy.get = function(){
 		if ( M.etsy.isMore ){
@@ -159,7 +159,7 @@ M.restoreItems = function (){
 M.wp.category = '';
 M.wp.items = {};
 M.wp.page = 1;
-M.wp.limit = 25;
+M.wp.limit = 15;
 M.wp.isMore = true;
 
 M.wp.get = function(){
