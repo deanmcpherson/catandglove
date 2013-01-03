@@ -1,15 +1,16 @@
 	var M = {};
 	M.loader = $('#ajax_wrap, #ajax_loader');
+	M.loadCount = 0;
 	M.loadCheck = function(){
-		if ( loadCount > 0 ){
-			M.loader.show();
+		if ( this.loadCount > 0 ){
+			this.loader.show();
 		}
 		else
 		{
-			M.loader.hide();
+			this.loader.hide();
 		}
 	}
-	M.loadCount = 0;
+
 	M.init = function(){
 		M.etsy.init();
 		$('#etsy .more').tappable(function(){
