@@ -162,6 +162,11 @@ color: rgba(255, 255, 255, .6);
 font-size: 30px;
 overflow: hidden;
 cursor: pointer;
+-webkit-transition: all 1s;
+}
+
+.panel.etsyItem:hover{
+	color:white;
 }
 
 .panel.writeItem:hover,.panel.writeItem:hover h3 {
