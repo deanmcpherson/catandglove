@@ -9,6 +9,7 @@ border: 1px solid #DDD;
 margin-bottom: 0px;
 padding: .4em;
 background-color:white;
+cursor: pointer;
 }
 
 #etsy, #write, #art {
