@@ -24,6 +24,7 @@
 			$('[show].act').removeClass('act');
 			$('[show='+show+']').addClass('act');
 		});
+		router.checkRoutes(History.getState());
 	}
 	
 	M.etsy = {};
