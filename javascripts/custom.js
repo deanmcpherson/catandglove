@@ -14,11 +14,15 @@
 			M.nav.home();
 		});
 		
+		if ( $('.mobNav').css('display') == 'block' ){
+			router.navigate('/etsy');
+		}
+		
 		$('[show]:not(.prep)').addClass('prep').tappable(function(){
-		var show = $(this).attr('show');
-		router.navigate('/'+show);
-		$('[show].act').removeClass('act');
-		$('[show='+show+']').addClass('act');
+			var show = $(this).attr('show');
+			router.navigate('/'+show);
+			$('[show].act').removeClass('act');
+			$('[show='+show+']').addClass('act');
 		});
 	}
 	
