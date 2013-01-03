@@ -132,7 +132,6 @@
 	
 M.etsy.renderItem = function (data) {
 	M.nav.makeActive($('#etsy'));
-	M.restoreItems();
 	var tmpl = '<div class="itemDetails row"><div class="column six"><p>{{{description}}}</p><a href="http://etsy.com/listing/{{listing_id}}"><button class="button">View on etsy</button></a><ul><li>Price - {{price}} {{currency_code}}</li><li>Style - {{style_string}}</li></ul></div><div class="column six"><div class="gal"{{{image_lis}}}</div></div></div>';
 	data.style_string = '';
 	var eid = data.listing_id;
@@ -276,30 +275,37 @@ M.nav.pageByID = function(type, id){
 var router = new Router();
 
 router.route('/', function(){
+	M.restoreItems();
 	M.nav.removeActive();
 });
 
 router.route('/etsy', function(){
+	M.restoreItems();
 	M.nav.makeActive($('#etsy'));
 });
 
 router.route('/etsy/:id', function(id){
+	M.restoreItems();
 	M.nav.pageByID('etsy', id);
 });
 
 router.route('/write', function(){
+	M.restoreItems();
 	M.nav.makeActive($('#write'));
 });
 
 router.route('/write/:id', function(id){
+	M.restoreItems();
 	M.nav.pageByID('write', id);
 });
 
 router.route('/art', function(){
+	M.restoreItems();
 	M.nav.makeActive($('#art'));
 });
 
 router.route('/art/:id', function(id){
+	M.restoreItems();
 	M.nav.pageByID('art', id);
 });
 
