@@ -1,13 +1,17 @@
 	var M = {};
 	M.init = function(){
 		M.etsy.init();
-		$('#etsy .more').click(function(){
+		$('#etsy .more').tappable(function(){
 			M.etsy.more();
 		});
 		
 		M.write.get();
-		$('#write .more').click(function(){
+		$('#write .more').tappable(function(){
 			M.write.get();
+		});
+		
+		$('.home').tappable(function(){
+			M.nav.home();
 		});
 		
 		$('[show]:not(.prep)').addClass('prep').tappable(function(){
@@ -172,10 +176,14 @@ M.write.render = function(){
 
 M.nav = {};
 M.nav.home = function () {
+	router.navigate('/');
 }
 
 M.nav.makeActive = function ($id){
 	if ( !$id.hasClass('twelve') ){
+		var id = $id.attr('id');
+		$('[show]').removeClass('act');
+		$('[show='+id+']').addClass('act');
 		$('.content>.twelve').removeClass('twelve').addClass('four');
 		$('.hidden').removeClass('hidden');
 		$('#etsy, #write, #art').addClass('hidden');
