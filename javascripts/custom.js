@@ -130,7 +130,7 @@
 	
 M.etsy.renderItem = function (data) {
 	M.nav.makeActive($('#etsy'));
-	var tmpl = '<div class="itemDetails row"><div class="column six"><p>{{{description}}}</p><a href="http://etsy.com/listing/{{listing_id}}"><button class="button">View on etsy</button></a><ul><li>Price - {{price}} {{currency_code}}</li><li>Style - {{style_string}}</li></ul></div><div class="column six"><div class="gal"{{{image_lis}}}</div></div></div>';
+	var tmpl = '<div class="itemDetails row"><div class="column six"><p>{{{description}}}</p><a href="http://etsy.com/listing/{{listing_id}}"><button class="button">View on etsy</button></a><ul><li>Price - {{price}} {{currency_code}}</li><li>Style - {{style_string}}</li></ul></div><div class="column six"><div class="gal"><ul>{{{image_list}}}</ul></div></div></div>';
 	data.style_string = '';
 	var eid = data.listing_id;
 	for (x in data.style)
@@ -142,7 +142,20 @@ M.etsy.renderItem = function (data) {
 		data.style_string= data.style_string.substr(0, data.style_string.length-2);
 	}
 	data.description = data.description.replace(/\n/g,"<br>");
+	
 	data.image_list = '';
+	var a = 0;
+	for (x in data.Images ){
+		if (a == 0){
+		data.image_list+='<li style=\'display:block\'><img src=\'' + data['Images'][x]['url_570xN'] + '\'></li>';	
+		a++;
+		} else
+		{
+			data.image_list+='<li style=\'display:none\'><img src=\'' + data['Images'][x]['url_570xN'] + '\'></li>';
+		}
+	}
+	
+
 	var res = Mustache.render(tmpl, data);
 	$('[eid='+eid+']').after(res);
 	scrollTo(0, $('[eid='+eid+']').offset().top);
