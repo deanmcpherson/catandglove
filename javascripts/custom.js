@@ -204,7 +204,7 @@ M.nav.pageByID = function(type, id){
 
 var router = new Router();
 
-router.route('', function(){
+router.route('/', function(){
 	M.nav.removeActive();
 });
 
