@@ -1,5 +1,7 @@
 .hidden{display:none;}
-
+.h2{
+text-align: center;
+}
 .colHeader{
 border: 1px solid #DDD;
 margin-bottom: 0px;
