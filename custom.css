@@ -184,7 +184,7 @@ overflow: hidden;
 cursor: pointer;
 }
 
-.panel.etsyItem:hover , .panel.etsyItem:hover h3, .panel.etsyItem.activeItem , .panel.etsyItem.activeItem{
+.panel.etsyItem.activeItem , .panel.etsyItem.activeItem{
 color: white;
 background: #555 !important;
 }
