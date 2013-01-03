@@ -151,7 +151,7 @@ M.etsy.renderItem = function (data) {
 	
 M.restoreItems = function (){
 	 $('.itemDetails').remove();
-	 $('.activeItem').removeClass('.activeItem');
+	 $('.activeItem').removeClass('activeItem');
 }	
 	M.etsy.init = M.etsy.get;
 	M.etsy.more = M.etsy.get;
