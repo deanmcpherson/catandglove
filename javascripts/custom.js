@@ -159,6 +159,7 @@ M.etsy.renderItem = function (data) {
 	var res = Mustache.render(tmpl, data);
 	$('[eid='+eid+']').after(res);
 	scrollTo(0, $('[eid='+eid+']').offset().top);
+	window.s = new Swipe($('.gal')[0]);
 }
 	
 M.restoreItems = function (){
