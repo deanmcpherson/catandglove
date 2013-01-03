@@ -263,7 +263,7 @@ M.nav.pageByID = function(type, id){
 		$('[eid='+id+']').addClass('activeItem');
 		var data = M[type]['items'][id];
 		M[type]['renderItem']( data );
-		console.log(data.title);
+		scrollTo(0, $('.activeItem').offset().top);
 	}
 	else
 	{
