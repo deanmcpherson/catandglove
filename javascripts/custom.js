@@ -256,20 +256,20 @@ M.nav.home = function () {
 }
 
 M.nav.makeActive = function ($id){
-	if ( !$id.hasClass('twelve') ){
+	if ( !$id.hasClass('eight') ){
 		var id = $id.attr('id');
 		$('[show]').removeClass('act');
 		$('[show='+id+']').addClass('act');
-		$('.content>.twelve').removeClass('twelve').addClass('four');
+		$('.content>.eight').removeClass('eight').removeClass('offset-by-two').addClass('four');
 		$('.hidden').removeClass('hidden');
 		$('#etsy, #write, #art').addClass('hidden');
-		$id.removeClass('hidden').removeClass('four').addClass('twelve');
+		$id.removeClass('hidden').removeClass('four').addClass('eight').addClass('offset-by-two');
 	}
 }
 
 M.nav.removeActive = function($id){
 $('#etsy, #write, #art').removeClass('hidden');
-$('.content>.twelve').removeClass('twelve').addClass('four');
+$('.content>.eight').removeClass('eight').removeClass('offset-by-two').addClass('four');
 }
 
 M.nav.pageByID = function(type, id){
