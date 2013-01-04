@@ -286,9 +286,35 @@ M.nav.pageByID = function(type, id){
 	else
 	{
 		M[type]['getSingle'](id);
+		
 	}
 }
 
+
+M.etsy.getSingle = function(id){
+	var url = 'http://openapi.etsy.com/v2/listings/'+id+'.js?callback=getData&api_key=3lrt6kdjs0ppzxvxj1ypo0m4&includes=Images';
+	M.loadCount++;
+	M.loadCheck();
+	$.ajax({
+	url:url,
+	dataType: 'jsonp'
+	}).done(function(data){
+		M.loadCount--;
+		M.loadCheck();
+		if (data.ok){
+		M.etsy.render();
+		$('[eid='+id+']').addClass('activeItem');
+		var data = M['etsy']['items'][id];
+		M['etsy']['renderItem']( data );
+		scrollTo(0, $('.activeItem').offset().top);
+		}
+	})
+	.fail(function(){
+	M.loadCount--;
+	M.loadCheck();
+	});
+}
+	
 var router = new Router();
 
 router.route('/', function(){
