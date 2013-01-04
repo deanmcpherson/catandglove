@@ -198,6 +198,7 @@ cursor: pointer;
 color: white;
 background: #555 !important;
 height: 200px;
+border-top: 30px solid #98D5D2;
 }
 
 .itemDetails
