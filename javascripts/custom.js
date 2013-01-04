@@ -27,7 +27,9 @@
 		});
 		
 		if ( $('.mobNav').css('display') == 'block' ){
-			router.navigate('/etsy');
+			if (History.getState().cleanUrl == "http://catandglove.com/"){
+				router.navigate('/etsy');
+			}
 		}
 		
 		$('[show]:not(.prep)').addClass('prep').tappable(function(){
