@@ -192,6 +192,7 @@ cursor: pointer;
 .panel.etsyItem.activeItem , .panel.etsyItem.activeItem{
 color: white;
 background: #555 !important;
+height: 200px;
 }
 
 .itemDetails
