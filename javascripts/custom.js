@@ -66,7 +66,9 @@
 					{
 						count++;
 						var result = data.results[x];
-						M.etsy.items[result.listing_id] = result;
+						if (M.etsy.items[result.listing_id] == undefined){
+							M.etsy.items[result.listing_id] = result;
+						}
 					}
 					if ( count < limit ) { M.etsy.isMore = false;}
 					M.etsy.render();
@@ -302,12 +304,13 @@ M.etsy.getSingle = function(id){
 		M.loadCount--;
 		M.loadCheck();
 		if (data.ok){
-		var data = data.results[0];
-		M.etsy.render();
-		$('[eid='+id+']').addClass('activeItem');
-		var data = M['etsy']['items'][id];
-		M['etsy']['renderItem']( data );
-		scrollTo(0, $('.activeItem').offset().top);
+			var data = data.results[0];
+			M.etsy.items[result.listing_id] = data;
+			M.etsy.render();
+			$('[eid='+id+']').addClass('activeItem');
+			var data = M['etsy']['items'][id];
+			M['etsy']['renderItem']( data );
+			scrollTo(0, $('.activeItem').offset().top);
 		}
 	})
 	.fail(function(){
