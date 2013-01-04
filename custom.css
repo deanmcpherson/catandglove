@@ -1,5 +1,9 @@
 .hidden{display:none;}
 
+*{
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
 .header.home:hover {
 background: #999;
 cursor: pointer;
