@@ -302,6 +302,7 @@ M.etsy.getSingle = function(id){
 		M.loadCount--;
 		M.loadCheck();
 		if (data.ok){
+		var data = data.results[0];
 		M.etsy.render();
 		$('[eid='+id+']').addClass('activeItem');
 		var data = M['etsy']['items'][id];
