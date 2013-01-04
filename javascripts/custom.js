@@ -305,7 +305,7 @@ M.etsy.getSingle = function(id){
 		M.loadCheck();
 		if (data.ok){
 			var data = data.results[0];
-			M.etsy.items[result.listing_id] = data;
+			M.etsy.items[data.listing_id] = data;
 			M.etsy.render();
 			$('[eid='+id+']').addClass('activeItem');
 			var data = M['etsy']['items'][id];
