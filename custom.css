@@ -131,6 +131,7 @@ opacity:0.1}
 .header h2{
 text-align: center;
 color:white;
+text-shadow: 2px 2px 1px #555;
 }
 .colHeader{
 border: 1px solid #DDD;
