@@ -933,9 +933,9 @@ form.custom .custom.disabled {
 }
 
 /* line 18, ../../../../../Program Files (x86)/ruby-1.9.2/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.2/scss/foundation/components/_grid.scss */
-[class*="column"] + [class*="column"]:last-child {
+/*[class*="column"] + [class*="column"]:last-child {
   float: right;
-}
+}*/
 
 /* line 19, ../../../../../Program Files (x86)/ruby-1.9.2/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.2/scss/foundation/components/_grid.scss */
 [class*="column"] + [class*="column"].end {
