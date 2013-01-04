@@ -160,6 +160,7 @@ M.etsy.renderItem = function (data) {
 	$('[eid='+eid+']').after(res);
 	scrollTo(0, $('[eid='+eid+']').offset().top);
 	window.s = new Swipe($('.gal')[0]);
+	var myPhotoSwipe = $(".gal a").photoSwipe({ enableMouseWheel: false , enableKeyboard: true });
 }
 	
 M.restoreItems = function (){
