@@ -175,7 +175,7 @@ function WP(category){
 	this.page = 1;
 	this.limit = 15;
 	this.isMore = true;
-	this.get : function(){
+	this.get = function(){
 		if ( this.isMore ){
 			var wp = this;
 			url = '/press?json=get_category_posts&category_slug='+this.category+'&count='+this.limit+'&page='+this.page;
