@@ -157,11 +157,11 @@ body{
 	body{
 		background-image:url('/images/bg.png');
 	}
-	.panel.etsyItem {
+	.panel.etsyItem, .panel.artItem{
 		-webkit-transition: all 1s;
 	}
 }
-.panel.etsyItem {
+.panel.etsyItem, .panel.artItem{
 background: #F2F2F2;
 border: solid 1px #E6E6E6;
 margin: 0 0 2px 0;
@@ -178,7 +178,7 @@ overflow: hidden;
 cursor: pointer;
 }
 
-.panel.etsyItem:hover{
+.panel.etsyItem:hover, .panel.artItem:hover{
 	color:white;
 }
 

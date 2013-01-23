@@ -255,7 +255,7 @@ M.write.render = function(){
 M.art = new WP('art');
 M.art.render = function(){
 
-	var itemTemp = 	'<div class="row"><div class="twelve columns"><div class="panel etsyItem" eID= "{{slug}}" style="background:url({{thumbnail}});">{{{title}}}</div></div></div>';
+	var itemTemp = 	'<div class="row"><div class="twelve columns"><div class="panel artItem" eID= "{{slug}}" style="background:url({{thumbnail}});">{{{title}}}</div></div></div>';
 	var artHTML = [];
 	
 	for ( x in this.items ){
