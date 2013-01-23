@@ -21,6 +21,11 @@ M.init = function(){
 		M.write.get();
 	});
 	
+	M.art.get();
+	$('#art .more').tappable(function(){
+		M.write.get();
+	});
+	
 	$('.home').tappable(function(){
 		M.nav.home();
 	});
@@ -283,14 +288,18 @@ M.art.render = function(){
 	}
 	loadHTML();
 }
-
+M.art.showMoreButton = function(){
+	$('#art .more').show();
+};
+M.art.hideMoreButton = function(){
+	$('#art .more').hide();
+};
 
 M.nav = {};
 
 M.nav.home = function () {
 	router.navigate('/');
 }
-
 M.nav.makeActive = function ($id){
 	if ( !$id.hasClass('eight') ){
 		var id = $id.attr('id');
@@ -302,12 +311,10 @@ M.nav.makeActive = function ($id){
 		$id.removeClass('hidden').removeClass('four').addClass('eight').addClass('offset-by-two');
 	}
 }
-
 M.nav.removeActive = function($id){
 $('#etsy, #write, #art').removeClass('hidden');
 $('.content>.eight').removeClass('eight').removeClass('offset-by-two').addClass('four');
 }
-
 M.nav.pageByID = function(type, id){
 
 	if ( M[type]['items'][id] != undefined )
