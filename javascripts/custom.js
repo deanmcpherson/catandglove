@@ -169,44 +169,44 @@ M.restoreItems = function (){
 M.etsy.init = M.etsy.get;
 M.etsy.more = M.etsy.get;
 	
-M.wp = {};
-M.wp.category = '';
-M.wp.items = {};
-M.wp.page = 1;
-M.wp.limit = 15;
-M.wp.isMore = true;
+function WP(category){
+	category : category,
+	items : {},
+	page : 1,
+	limit : 15,
+	isMore : true,
 
-M.wp.get = function(){
-	if ( this.isMore ){
-		var wp = this;
-		url = '/press?json=get_category_posts&category_slug='+this.category+'&count='+this.limit+'&page='+this.page;
-		M.loadCount++;
-		M.loadCheck();
-		$.get(url).
-		done( function( data ){
+	get : function(){
+		if ( this.isMore ){
+			var wp = this;
+			url = '/press?json=get_category_posts&category_slug='+this.category+'&count='+this.limit+'&page='+this.page;
+			M.loadCount++;
+			M.loadCheck();
+			$.get(url).
+			done( function( data ){
+				M.loadCount--;
+				M.loadCheck();
+				if ( data.status == 'ok' ){
+					wp.page++;
+					var count = 0;
+					for ( x in data.posts ){
+						count++;
+						var result = data.posts[x];
+						wp.items[result['slug']] = result;
+					}
+					if ( count < wp.limit ) { wp.isMore = false;}
+				}
+				wp.render();
+			})
+			.fail(function(){
 			M.loadCount--;
 			M.loadCheck();
-			if ( data.status == 'ok' ){
-				wp.page++;
-				var count = 0;
-				for ( x in data.posts ){
-					count++;
-					var result = data.posts[x];
-					wp.items[result['slug']] = result;
-				}
-				if ( count < wp.limit ) { wp.isMore = false;}
-			}
-			wp.render();
-		})
-		.fail(function(){
-		M.loadCount--;
-		M.loadCheck();
-		});
+			});
+		}
 	}
 }
 
-M.write = new M.wp;
-M.write.category = 'write';
+M.write = new WP('write');
 M.write.showMoreButton = function(){
 	$('#write .more').show();
 };
@@ -248,8 +248,7 @@ M.write.render = function(){
 	loadHTML();
 }
 
-M.art =  new M.wp;
-M.art.category = 'art';
+M.art = new WP('art');
 M.art.render = function(){
 
 	var itemTemp = 	'<div class="row"><div class="twelve columns"><div class="panel etsyItem" eID= "{{slug}}" style="background:url({{thumbnail}});">{{{title}}}</div></div></div>';
