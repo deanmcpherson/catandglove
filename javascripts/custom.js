@@ -23,7 +23,7 @@ M.init = function(){
 	
 	M.art.get();
 	$('#art .more').tappable(function(){
-		M.write.get();
+		M.art.get();
 	});
 	
 	$('.home').tappable(function(){
