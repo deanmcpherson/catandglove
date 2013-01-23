@@ -48,7 +48,7 @@ M.init = function(){
 M.etsy = {};
 M.etsy.items = {};
 M.etsy.page = 0;
-M.etsy.limit = 15;
+M.etsy.limit = 10;
 M.etsy.isMore = true;
 M.etsy.get = function(){
 	if ( M.etsy.isMore ){
@@ -178,7 +178,7 @@ function WP(category){
 	this.category = category;
 	this.items = {};
 	this.page = 1;
-	this.limit = 15;
+	this.limit = 10;
 	this.isMore = true;
 	this.get = function(){
 		if ( this.isMore ){
