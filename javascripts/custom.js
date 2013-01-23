@@ -250,6 +250,10 @@ M.write.render = function(){
 		}
 	}
 	loadHTML();
+	$('.writeItem a img').each(function(){
+	var image = $(this).html('img');
+	var a = $(this).parent('a').before(image).remove();
+	});
 }
 
 M.art = new WP('art');
