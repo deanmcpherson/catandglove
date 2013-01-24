@@ -99,11 +99,13 @@ M.etsy.getSingle = function(id){
 		M.loadCount--;
 		M.loadCheck();
 		if (data.ok){
-		M.etsy.render();
-		$('[eid='+id+']').addClass('activeItem');
-		var data = M['etsy']['items'][id];
-		M['etsy']['renderItem']( data );
-		scrollTo(0, $('.activeItem').offset().top);
+			console.log(data);
+			M.etsy.items[data.results[0]['listing_id']] = data.results[0];
+			M.etsy.render();
+			$('[eid='+id+']').addClass('activeItem');
+			var data = M['etsy']['items'][id];
+			M['etsy']['renderItem']( data );
+			scrollTo(0, $('.activeItem').offset().top);
 		}
 	})
 	.fail(function(){
