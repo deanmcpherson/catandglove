@@ -311,7 +311,16 @@ M.write.render = function(){
 	loadHTML();
 }
 
-M.write.renderItem
+M.write.renderItem = function (data) {
+	M.nav.makeActive($('#write'));
+	var tmpl = '<div class="itemDetails row"><div class="gal"><a href="{{{thumbnail}}}"><img src="{{{thumbnail}}}"></a></gal>{{{content}}}</div>';
+	data.style_string = '';
+	var eid = data.slug;
+	var res = Mustache.render(tmpl, data);
+	$('[eid='+eid+']').after(res);
+	scrollTo(0, $('[eid='+eid+']').offset().top);
+	var myPhotoSwipe = $(".gal a").photoSwipe({ enableMouseWheel: false , enableKeyboard: true });
+}
 
 M.art = new WP('art');
 M.art.render = function(){
