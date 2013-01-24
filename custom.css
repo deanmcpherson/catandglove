@@ -152,16 +152,6 @@ body{
 	background-color:#ddd;
 }
 
-
-@media only screen and (min-width: 767px){
-	body{
-		background-image:url('/images/bg.png');
-	}
-	.panel.etsyItem, .panel.artItem{
-		-webkit-transition: all 1s;
-	}
-}
-
 .artItem.activeItem .gal{ text-align:center; }
 
 .artItem.activeItem img { border: 15px solid rgb(34, 99, 99); }
@@ -246,4 +236,13 @@ text-align: center;
 
 .mobNav h3.act {
 border-bottom: 7px solid #475E88;
+}
+
+@media only screen and (min-width: 767px){
+	body{
+		background-image:url('/images/bg.png');
+	}
+	.panel.etsyItem, .panel.artItem{
+		-webkit-transition: all 1s;
+	}
 }

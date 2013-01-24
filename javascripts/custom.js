@@ -337,9 +337,9 @@ M.art.render = function(){
 		}
 		else
 		{
-			$('.writeItem:not(prepped)').addClass('prepped').tappable(function(){
+			$('.artItem:not(prepped)').addClass('prepped').tappable(function(){
 				var eid = $(this).attr('eid');
-				router.navigate('/write/'+eid);
+				router.navigate('/art/'+eid);
 			});
 			
 			if ( M.art.isMore ){
