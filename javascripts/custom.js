@@ -232,7 +232,33 @@ function WP(category){
 			M.loadCheck();
 			});
 		}
-	}
+	};
+	this.getSingle = function(id){
+		var wp = this;
+		var url = '/press?json=get_post&post_slug='+id+';
+		M.loadCount++;
+		M.loadCheck();
+		$.ajax({
+		url:url,
+		dataType: 'json'
+		}).done(function(data){
+			M.loadCount--;
+			M.loadCheck();
+			if (data.ok){
+				wp.items[data.results[0]['listing_id']] = data.results[0];
+				wp.render();
+				
+				$('[eid='+id+']').addClass('activeItem');
+				var data = wp['items'][id];
+				M['etsy']['renderItem']( data );
+				scrollTo(0, $('.activeItem').offset().top);
+			}
+		})
+		.fail(function(){
+		M.loadCount--;
+		M.loadCheck();
+		});
+	};
 }
 
 M.write = new WP('write');
