@@ -320,7 +320,7 @@ M.write.renderItem = function (data) {
 	$('[eid='+eid+']').after(res);
 	scrollTo(0, $('[eid='+eid+']').offset().top);
 	var myPhotoSwipe = $(".gal a").photoSwipe({ enableMouseWheel: false , enableKeyboard: true });
-	$('.writeItem a img:not(.thumb)').each(function(){
+	$('#write a img:not(.thumb)').each(function(){
 		var image = $(this).html('img');
 		var a = $(this).parent('a').before(image).remove();
 		});

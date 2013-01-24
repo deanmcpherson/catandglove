@@ -152,9 +152,9 @@ body{
 	background-color:#ddd;
 }
 
-.artItem.activeItem .gal{ text-align:center; }
+#write .gal{ text-align:center; }
 
-.artItem.activeItem img { border: 15px solid rgb(34, 99, 99); }
+#write .itemDetails img { border: 15px solid rgb(34, 99, 99); }
 
 .panel.etsyItem, .panel.artItem {
 	background: #F2F2F2;
@@ -251,7 +251,7 @@ border-bottom: 7px solid #475E88;
 	body{
 		background-image:url('/images/bg.png');
 	}
-	.panel.etsyItem, .panel.artItem{
+	.panel.etsyItem, .panel.artItem, .panel.writeItem{
 		-webkit-transition: all 1s;
 	}
 }
