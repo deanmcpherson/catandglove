@@ -89,7 +89,7 @@ M.etsy.get = function(){
 	}
 }
 M.etsy.getSingle = function(id){
-	var url = 'http://openapi.etsy.com/v2/listings/'id+'.js?callback=getData&api_key=3lrt6kdjs0ppzxvxj1ypo0m4&includes=Images';
+	var url = 'http://openapi.etsy.com/v2/listings/'+id+'.js?callback=getData&api_key=3lrt6kdjs0ppzxvxj1ypo0m4&includes=Images';
 	M.loadCount++;
 	M.loadCheck();
 	$.ajax({
@@ -111,7 +111,6 @@ M.etsy.getSingle = function(id){
 	M.loadCheck();
 	});
 }
-
 M.etsy.hideMoreButton = function (){
 	$('#etsy .more').hide();
 }
