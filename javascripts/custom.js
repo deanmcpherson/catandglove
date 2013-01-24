@@ -235,7 +235,7 @@ function WP(category){
 	};
 	this.getSingle = function(id){
 		var wp = this;
-		var url = '/press?json=get_post&post_slug='+id+';
+		var url = '/press?json=get_post&post_slug='+id;
 		M.loadCount++;
 		M.loadCheck();
 		$.ajax({
