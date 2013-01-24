@@ -158,38 +158,36 @@ M.etsy.render = function(){
 	loadHTML();
 }
 M.etsy.renderItem = function (data) {
-M.nav.makeActive($('#etsy'));
-var tmpl = '<div class="itemDetails row"><div class="column six"><p>{{{description}}}</p><a href="http://etsy.com/listing/{{listing_id}}"><button class="button">View on etsy</button></a><ul><li>Price - {{price}} {{currency_code}}</li><li>Style - {{style_string}}</li></ul></div><div class="column six"><div class="gal"><ul>{{{image_list}}}</ul></div></div></div>';
-data.style_string = '';
-var eid = data.listing_id;
-for (x in data.style)
-{
-	data.style_string += data.style[x] +', ';
-}
-if (data.style_string.length > 0)
-{
-	data.style_string= data.style_string.substr(0, data.style_string.length-2);
-}
-data.description = data.description.replace(/\n/g,"<br>");
-
-data.image_list = '';
-var a = 0;
-for (x in data.Images ){
-	if (a == 0){
-		data.image_list+='<li style=\'display:block\'><a href="' + data['Images'][x]['url_fullxfull'] + '"><img src=\'' + data['Images'][x]['url_570xN'] + '\' alt="'+ data.title +'"></a></li>';	
-		a++;
-	} else
+	M.nav.makeActive($('#etsy'));
+	var tmpl = '<div class="itemDetails row"><div class="column six"><p>{{{description}}}</p><a href="http://etsy.com/listing/{{listing_id}}"><button class="button">View on etsy</button></a><ul><li>Price - {{price}} {{currency_code}}</li><li>Style - {{style_string}}</li></ul></div><div class="column six"><div class="gal"><ul>{{{image_list}}}</ul></div></div></div>';
+	data.style_string = '';
+	var eid = data.listing_id;
+	for (x in data.style)
 	{
-		data.image_list+='<li style=\'display:none\'><a href="' + data['Images'][x]['url_fullxfull'] + '"><img src=\'' + data['Images'][x]['url_570xN'] + '\' alt="'+ data.title +'"></a></li>';
+		data.style_string += data.style[x] +', ';
 	}
-}
+	if (data.style_string.length > 0)
+	{
+		data.style_string= data.style_string.substr(0, data.style_string.length-2);
+	}
+	data.description = data.description.replace(/\n/g,"<br>");
 
-
-var res = Mustache.render(tmpl, data);
-$('[eid='+eid+']').after(res);
-scrollTo(0, $('[eid='+eid+']').offset().top);
-window.s = new Swipe($('.gal')[0]);
-var myPhotoSwipe = $(".gal a").photoSwipe({ enableMouseWheel: false , enableKeyboard: true });
+	data.image_list = '';
+	var a = 0;
+	for (x in data.Images ){
+		if (a == 0){
+			data.image_list+='<li style=\'display:block\'><a href="' + data['Images'][x]['url_fullxfull'] + '"><img src=\'' + data['Images'][x]['url_570xN'] + '\' alt="'+ data.title +'"></a></li>';	
+			a++;
+		} else
+		{
+			data.image_list+='<li style=\'display:none\'><a href="' + data['Images'][x]['url_fullxfull'] + '"><img src=\'' + data['Images'][x]['url_570xN'] + '\' alt="'+ data.title +'"></a></li>';
+		}
+	}
+	var res = Mustache.render(tmpl, data);
+	$('[eid='+eid+']').after(res);
+	scrollTo(0, $('[eid='+eid+']').offset().top);
+	window.s = new Swipe($('.gal')[0]);
+	var myPhotoSwipe = $(".gal a").photoSwipe({ enableMouseWheel: false , enableKeyboard: true });
 }
 
 M.restoreItems = function (){
@@ -296,6 +294,11 @@ M.write.render = function(){
 			var a = $(this).parent('a').before(image).remove();
 			});
 			
+			$('.writeItem:not(prepped)').addClass('prepped').tappable(function(){
+				var eid = $(this).attr('eid');
+				router.navigate('/write/'+eid);
+			});
+			
 			if ( M.write.isMore ){
 				M.write.showMoreButton();
 			}
@@ -308,9 +311,10 @@ M.write.render = function(){
 	loadHTML();
 }
 
+M.write.renderItem
+
 M.art = new WP('art');
 M.art.render = function(){
-
 	var itemTemp = 	'<div class="row"><div class="twelve columns"><div class="panel artItem" eID= "{{slug}}" style="background:url({{thumbnail}});">{{{title}}}</div></div></div>';
 	var artHTML = [];
 	
@@ -333,6 +337,11 @@ M.art.render = function(){
 		}
 		else
 		{
+			$('.writeItem:not(prepped)').addClass('prepped').tappable(function(){
+				var eid = $(this).attr('eid');
+				router.navigate('/write/'+eid);
+			});
+			
 			if ( M.art.isMore ){
 				M.art.showMoreButton();
 			}
@@ -350,6 +359,16 @@ M.art.showMoreButton = function(){
 M.art.hideMoreButton = function(){
 	$('#art .more').hide();
 };
+M.art.renderItem = function (data) {
+	M.nav.makeActive($('#art'));
+	var tmpl = '<div class="itemDetails row"><div class="gal"><a href="{{{thumbnail}}}"><img src="{{{thumbnail}}}"></a></gal>{{{content}}}</div>';
+	data.style_string = '';
+	var eid = data.slug;
+	var res = Mustache.render(tmpl, data);
+	$('[eid='+eid+']').after(res);
+	scrollTo(0, $('[eid='+eid+']').offset().top);
+	var myPhotoSwipe = $(".gal a").photoSwipe({ enableMouseWheel: false , enableKeyboard: true });
+}
 
 M.nav = {};
 
