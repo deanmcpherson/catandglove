@@ -156,9 +156,6 @@ body{
 
 .artItem.activeItem img { border: 15px solid rgb(34, 99, 99); }
 
-
-
-}
 .panel.etsyItem, .panel.artItem {
 	background: #F2F2F2;
 	border: solid 1px #E6E6E6;
@@ -200,10 +197,11 @@ background: #555 !important;
 	overflow: hidden;
 	cursor: pointer;
 }
-.writeItem.activeItem * {
+
+.writeItem.activeItem *{
 display:none; 
 }
-.writeItem.activeItem h3 {
+.writeItem.activeItem h3{
 	display:block;
 	color:white;
 }
