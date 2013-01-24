@@ -209,7 +209,7 @@ height: 200px;
 border-top: 30px solid #98D5D2;
 }
 
- .panel.artItem.activeItem img { border: 15px solid rgb(34, 99, 99);; 	margin: 0 auto}
+ .panel.artItem.activeItem img { border: 15px solid rgb(34, 99, 99); 	margin: 0 auto;}
 
 .itemDetails
 {
