@@ -202,12 +202,14 @@ overflow: hidden;
 cursor: pointer;
 }
 
-.panel.etsyItem.activeItem , .panel.etsyItem.activeItem{
+.panel.etsyItem.activeItem , .panel.artItem.activeItem{
 color: white;
 background: #555 !important;
 height: 200px;
 border-top: 30px solid #98D5D2;
 }
+
+ .panel.artItem.activeItem img { border : 15px solid #999; }
 
 .itemDetails
 {
