@@ -242,8 +242,8 @@ function WP(category){
 		}).done(function(data){
 			M.loadCount--;
 			M.loadCheck();
-			if (data.status == 'ok'){
-				wp.items[data.results[0]['listing_id']] = data.results[0];
+			if (data.status == 'ok'	){
+				wp.items[data.post.slug] = data.post;
 				wp.render();
 				
 				$('[eid='+id+']').addClass('activeItem');
