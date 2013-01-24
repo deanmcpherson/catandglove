@@ -242,7 +242,7 @@ function WP(category){
 		}).done(function(data){
 			M.loadCount--;
 			M.loadCheck();
-			if (data.ok){
+			if (data.status == 'ok'){
 				wp.items[data.results[0]['listing_id']] = data.results[0];
 				wp.render();
 				
