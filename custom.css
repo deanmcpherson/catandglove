@@ -152,9 +152,9 @@ body{
 	background-color:#ddd;
 }
 
-#write .gal{ text-align:center; }
+#art .gal{ text-align:center; }
 
-#write .itemDetails img { border: 15px solid rgb(34, 99, 99); }
+#art .itemDetails img { border: 7px solid rgb(34, 99, 99); }
 
 .panel.etsyItem, .panel.artItem {
 	background: #F2F2F2;
