@@ -127,7 +127,7 @@
       })
 
       this.bind('click', function(event) {
-        event.preventDefault()
+        event.preventDefault();
       })
 
       if (cancelOnMove) {
