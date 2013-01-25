@@ -1,4 +1,4 @@
-var M = {};
+var M = {}; 
 M.loader = $('#ajax_wrap, #ajax_loader');
 M.loadCount = 0;
 M.loadCheck = function(){
