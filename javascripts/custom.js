@@ -313,7 +313,7 @@ M.write.render = function(){
 
 M.write.renderItem = function (data) {
 	M.nav.makeActive($('#write'));
-	var tmpl = '<div class="itemDetails row"><div class="gal"><a href="{{{thumbnail}}}"><img src="{{{thumbnail}}}" class="thumb"></a></gal>{{{content}}}</div>';
+	var tmpl = '<div class="itemDetails row"><div class="gal">{{#thumbnail}}<a href="{{{thumbnail}}}"><img src="{{{thumbnail}}}" class="thumb"></a></div>{{/thumbnail}}{{{content}}}</div>';
 	data.style_string = '';
 	var eid = data.slug;
 	var res = Mustache.render(tmpl, data);
