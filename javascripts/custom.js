@@ -291,7 +291,8 @@ M.write.render = function(){
 		{
 			$('.writeItem a img').each(function(){
 			var image = $(this).html('img');
-			var a = $(this).parent('a').before(image).remove();
+			$(this).parent('a').before(image);
+			$(this).parent('a').remove();
 			});
 			
 			$('.writeItem:not(prepped)').addClass('prepped').click(function(){
@@ -319,7 +320,9 @@ M.write.renderItem = function (data) {
 	var res = Mustache.render(tmpl, data);
 	$('[eid='+eid+']').after(res);
 	scrollTo(0, $('[eid='+eid+']').offset().top);
-	var myPhotoSwipe = $(".gal a").photoSwipe({ enableMouseWheel: false , enableKeyboard: true });
+		if( $(".gal a").length > 0 ){
+			var myPhotoSwipe = $(".gal a").photoSwipe({ enableMouseWheel: false , enableKeyboard: true });
+		}
 		$('#write a img:not(.thumb)').each(function(){
 		var image = $(this).html('img');
 		var a = $(this).parent('a').before(image).remove();
