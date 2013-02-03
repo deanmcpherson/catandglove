@@ -356,7 +356,7 @@ M.art.render = function(){
 	});
 	
 	for (x in itemsArray){
-		var result = this.itemsArray[x];
+		var result = itemsArray[x];
 		if ( result.rendered == undefined ){
 			//result.image = result.Images[0]['url_570xN'];
 			artHTML.push(Mustache.render(itemTemp, result));
