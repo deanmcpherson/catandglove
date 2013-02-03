@@ -269,13 +269,23 @@ M.write.hideMoreButton = function(){
 M.write.render = function(){
 	var itemTemp = '<div class="row"><div class="twelve columns"><div class="panel writeItem" eID= "{{slug}}" \><h3>{{{title}}}</h3>{{{content}}}</div></div></div>';
 	var writeHTML = [];
+	itemsArray = [];
+	for (x in this.items){
+		itemsArray.push[this.items[x]];
+	}
 	
-	for (x in this.items.reverse()){
-		var result = this.items[x];
+	itemsArray.sort(function(a,b){
+		var ad = new Date(a.date);
+		var bd = new Date(b.date);
+		return ad-bd;
+	});
+	
+	for (x in itemsArray){
+		var result = itemsArray[x];
 		if (result.rendered == undefined){
 			//result.image = result.Images[0]['url_570xN'];
 			writeHTML.push(Mustache.render(itemTemp, result));
-			this.items[x]['rendered'] = true;
+			this.items[itemsArray[x]['slug']]['rendered'] = true;
 		}
 	}
 	
@@ -334,12 +344,18 @@ M.art.render = function(){
 	var itemTemp = 	'<div class="row"><div class="twelve columns"><div class="panel artItem" eID= "{{slug}}" style="background:url({{thumbnail}});">{{{title}}}</div></div></div>';
 	var artHTML = [];
 	
-	for ( x in this.items.reverse() ){
-		var result = this.items[x];
+		itemsArray.sort(function(a,b){
+		var ad = new Date(a.date);
+		var bd = new Date(b.date);
+		return ad-bd;
+	});
+	
+	for (x in itemsArray){
+		var result = this.itemsArray[x];
 		if ( result.rendered == undefined ){
 			//result.image = result.Images[0]['url_570xN'];
 			artHTML.push(Mustache.render(itemTemp, result));
-			this.items[x]['rendered'] = true;
+			this.items[itemsArray[x]['slug']]['rendered'] = true;
 		}
 	}
 	
