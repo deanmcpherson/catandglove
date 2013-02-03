@@ -271,7 +271,7 @@ M.write.render = function(){
 	var writeHTML = [];
 	var itemsArray = [];
 	for (x in this.items){
-		itemsArray.push[this.items[x]];
+		itemsArray.push(this.items[x]);
 	}
 	
 	itemsArray.sort(function(a,b){
@@ -346,7 +346,7 @@ M.art.render = function(){
 	var itemsArray = [];
 	
 	for (x in this.items){
-		itemsArray.push[this.items[x]];
+		itemsArray.push(this.items[x]);
 	}
 	
 	itemsArray.sort(function(a,b){
