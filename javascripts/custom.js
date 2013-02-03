@@ -270,7 +270,7 @@ M.write.render = function(){
 	var itemTemp = '<div class="row"><div class="twelve columns"><div class="panel writeItem" eID= "{{slug}}" \><h3>{{{title}}}</h3>{{{content}}}</div></div></div>';
 	var writeHTML = [];
 	
-	for (x in this.items){
+	for (x in this.items.reverse()){
 		var result = this.items[x];
 		if (result.rendered == undefined){
 			//result.image = result.Images[0]['url_570xN'];
@@ -334,7 +334,7 @@ M.art.render = function(){
 	var itemTemp = 	'<div class="row"><div class="twelve columns"><div class="panel artItem" eID= "{{slug}}" style="background:url({{thumbnail}});">{{{title}}}</div></div></div>';
 	var artHTML = [];
 	
-	for ( x in this.items ){
+	for ( x in this.items.reverse() ){
 		var result = this.items[x];
 		if ( result.rendered == undefined ){
 			//result.image = result.Images[0]['url_570xN'];
