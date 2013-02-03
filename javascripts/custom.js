@@ -269,7 +269,7 @@ M.write.hideMoreButton = function(){
 M.write.render = function(){
 	var itemTemp = '<div class="row"><div class="twelve columns"><div class="panel writeItem" eID= "{{slug}}" \><h3>{{{title}}}</h3>{{{content}}}</div></div></div>';
 	var writeHTML = [];
-	itemsArray = [];
+	var itemsArray = [];
 	for (x in this.items){
 		itemsArray.push[this.items[x]];
 	}
@@ -343,11 +343,16 @@ M.art = new WP('art');
 M.art.render = function(){
 	var itemTemp = 	'<div class="row"><div class="twelve columns"><div class="panel artItem" eID= "{{slug}}" style="background:url({{thumbnail}});">{{{title}}}</div></div></div>';
 	var artHTML = [];
+	var itemsArray = [];
 	
-		itemsArray.sort(function(a,b){
-		var ad = new Date(a.date);
-		var bd = new Date(b.date);
-		return ad-bd;
+	for (x in this.items){
+		itemsArray.push[this.items[x]];
+	}
+	
+	itemsArray.sort(function(a,b){
+	var ad = new Date(a.date);
+	var bd = new Date(b.date);
+	return ad-bd;
 	});
 	
 	for (x in itemsArray){
