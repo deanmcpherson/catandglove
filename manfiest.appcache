@@ -23,5 +23,4 @@ mustache.js
 javascripts/custom.js
 
 NETWORK:
-/press
-http://openapi.etsy.com/
+*
