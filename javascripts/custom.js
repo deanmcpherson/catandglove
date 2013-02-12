@@ -266,8 +266,9 @@ M.write.showMoreButton = function(){
 M.write.hideMoreButton = function(){
 	$('#write .more').hide();
 };
+
 M.write.render = function(){
-	var itemTemp = '<div class="row"><div class="twelve columns"><div class="panel writeItem" eID= "{{slug}}" \><h3>{{{title}}}</h3>{{{content}}}</div></div></div>';
+	var itemTemp = '<div class="row"><div class="twelve columns"><div class="panel writeItem" style="background-image:url({{{thumbnail}}});" eID= "{{slug}}" \><h3>{{{title}}}</h3>{{{content}}}</div></div></div>';
 	var writeHTML = [];
 	var itemsArray = [];
 	for (x in this.items){
