@@ -11,10 +11,10 @@ M.loadCheck = function(){
 	}
 }
 M.init = function(){
-	M.etsy.init();
+	/*M.etsy.init();
 	$('#etsy .more').click(function(){
 		M.etsy.more();
-	});
+	});*/
 	
 	M.write.get();
 	$('#write .more').click(function(){
@@ -32,7 +32,7 @@ M.init = function(){
 	
 	if ( $('.mobNav').css('display') == 'block' ){
 		if (History.getState().cleanUrl == "http://catandglove.com/"){
-			router.navigate('/etsy');
+			router.navigate('/write');
 		}
 	}
 	
@@ -45,7 +45,7 @@ M.init = function(){
 	router.checkRoutes(History.getState());
 }
 
-M.etsy = {};
+/*M.etsy = {};
 M.etsy.items = {};
 M.etsy.page = 0;
 M.etsy.limit = 10;
@@ -189,13 +189,13 @@ M.etsy.renderItem = function (data) {
 	window.s = new Swipe($('.gal')[0]);
 	var myPhotoSwipe = $(".gal a").photoSwipe({ enableMouseWheel: false , enableKeyboard: true });
 }
-
+*/
 M.restoreItems = function (){
  $('.itemDetails').remove();
  $('.activeItem').removeClass('activeItem');
 }	
-M.etsy.init = M.etsy.get;
-M.etsy.more = M.etsy.get;
+//M.etsy.init = M.etsy.get;
+//M.etsy.more = M.etsy.get;
 	
 function WP(category){
 	this.category = category;
@@ -449,14 +449,14 @@ router.route('/', function(){
 	M.restoreItems();
 	M.nav.removeActive();
 });
-router.route('/etsy', function(){
+/*router.route('/etsy', function(){
 	M.restoreItems();
 	M.nav.makeActive($('#etsy'));
 });
 router.route('/etsy/:id', function(id){
 	M.restoreItems();
 	M.nav.pageByID('etsy', id);
-});
+});*/ 
 router.route('/write', function(){
 	M.restoreItems();
 	M.nav.makeActive($('#write'));

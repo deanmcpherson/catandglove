@@ -1,0 +1,7 @@
+
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www.catandglove.com$ [NC]
+RewriteRule ^(.*)$ http://catandglove.com/$1 [R=301,L]
+RewriteRule ^press/ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.html [QSA,L]
